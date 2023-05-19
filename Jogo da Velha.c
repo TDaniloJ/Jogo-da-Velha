@@ -3,7 +3,6 @@
 #include <locale.h>
 #include <conio.h>
 
-//Definição de Função
 int menu();
 int jogodavelha();
 void creditos();
@@ -34,7 +33,7 @@ int menu() {
         printf("\n3 - Regras");
         printf("\n0 - Sair");
 
-        printf("\n\nEscolha uma das opções: ");
+        printf("\n\nEscolha uma das op��es: ");
         scanf("%d", &op);
 
         system("cls");
@@ -50,7 +49,7 @@ int menu() {
             //regras();
             break;
         default:
-            printf("Informação inserida esta invalida");
+            printf("Informa��o inserida esta invalida");
             break;
         }
         

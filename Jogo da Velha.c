@@ -5,7 +5,7 @@
 #include <string.h>
 
 int menu(), jogodaVelha(), grafico();
-void creditos(), regras();
+void creditos(), comojogar();
 
 int main() {
     setlocale(LC_ALL, "portuguese");
@@ -16,60 +16,58 @@ int main() {
 }
 
 int menu() {
-    int op;
+	int op;
 
-    do {
+  do {
     
-    printf("##################################");
-    printf("\n    -> Jogo da Velha - Menu <-      ");
-    printf("\n##################################");
+  printf("##################################");
+  printf("\n    -> Jogo da Velha - Menu <-      ");
+  printf("\n##################################");
 
-        printf("\n\nAviso: Jogo ainda em desevolvimento v1.0 demo");
+  printf("\n\nAviso: Jogo ainda em desevolvimento v1.1 demo!");
+	printf("\nAviso: Recomendamos ver como jogar antes de iniciar!");
 
-        printf("\n\n1 - Inicia Jogo");
-        printf("\n2 - Creditos");
-        printf("\n3 - Regras");
-        printf("\n0 - Sair");
+  printf("\n\n1 - Inicia Jogo");
+	printf("\n2 - Como Jogar");
+  printf("\n3 - Creditos");
+  printf("\n0 - Sair");
 
-        printf("\n\nEscolha uma das opções: ");
-        scanf("%d", &op);
+  printf("\n\nEscolha uma das opções: ");
+  scanf("%d", &op);
 
-        system("cls");
+  system("cls");
 
-        switch(op) {
-        case 1:
-            jogodaVelha();
-            break;
-        case 2:
-            creditos();
-            break;
-        case 3:
-            //regras();
-            break;
-        default:
-            printf("Informação inserida esta invalida");
-            break;
-        }
+  switch(op) {
+    case 1:
+      jogodaVelha();
+        break;
+    case 2:
+      //comojogar();
+        break;
+    case 3:
+			creditos();
+        break;
+    default:
+      printf("Informação inserida esta invalida");
+        break;
+  }
         
-        system("cls");
+  system("cls");
 
-        getch();
+  getch();
 
-        system("cls");
+  system("cls");
 
-    } while (op != 0);
+  } while (op != 0);
 }
 
 int jogodaVelha() {
 	int linha, coluna, l, c, contador, ganhou, repetiu, rodada, jogador, sair = 's';
-	char velha[3][3];
+	char velha[3][3]; 
     
-   
-    
-    
-    for(l = 0; l < 3; l++) {
-    	for(c = 0; c < 3; c++) {
-    		velha[l][c] = ' ';
+  for(l = 0; l < 3; l++) {
+    for(c = 0; c < 3; c++) {
+    	velha[l][c] = ' ';
 		}
 	}
 	printf("\n");
@@ -83,8 +81,6 @@ int jogodaVelha() {
     
     for(rodada = 1; rodada <= 9 && ganhou == 0; rodada++) {
  
- 
-    	
     	if(jogador%2 == 1) {
     		jogador = 'X';
 		}else{
@@ -96,7 +92,7 @@ int jogodaVelha() {
 			printf("\nRodadas feitas %d", rodada);
 			printf("\nDigite as coordenadas (de 1 a 3) em que quer colocar o '%c': ", jogador);
 			scanf("%d %d", &linha, &coluna);
-	    	fflush(stdin);
+	    fflush(stdin);
     	
     	}while(linha < 1 || linha > 3 || coluna < 1 || coluna > 3 || velha[linha-1][coluna-1] != ' ');
     	
@@ -114,6 +110,11 @@ int jogodaVelha() {
 			ganhou = 1;
 		}
 	}
+
+	if (velha[linha-1][coluna-1] == linha && coluna) {
+		printf("Esse comando ja foi escolhido tente novamente");
+	}
+	
 
 	if (ganhou == 0) {
 	  printf("\nDeu velha!\n");
@@ -150,11 +151,11 @@ int grafico(char velha[3][3]) {
 
 }
 
-void regras() {
+void comojogar() {
 	
-    printf("####################################");
-    printf("\n    -> Jogo da Velha - Regras <-      ");
-    printf("\n####################################\n\n"); 
+  printf("####################################");
+  printf("\n    -> Jogo da Velha - Regras <-      ");
+  printf("\n####################################\n\n"); 
 
 	printf("Teste");
 	
@@ -163,13 +164,13 @@ void regras() {
 
 void creditos() {
 	
-    printf("######################################");
-    printf("\n    -> Jogo da Velha - Créditos <-      ");
-    printf("\n######################################\n\n"); 
+  printf("######################################");
+  printf("\n    -> Jogo da Velha - Créditos <-      ");
+  printf("\n######################################\n\n"); 
 
 	printf("Autor: Danilo Dias");
 	printf("\nDireitos: Todos os direitos reservado ©");
 	
 	printf("\n\nAperte 'enter' para voltar.");
-	getch();	
+	getch();
 }

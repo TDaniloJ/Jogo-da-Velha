@@ -28,7 +28,7 @@ int menu() {
 	printf("\nAviso: Recomendamos ver como jogar antes de iniciar!");
 
   printf("\n\n1 - Inicia Jogo");
-	printf("\n2 - Como Jogar");
+	//printf("\n2 - Como Jogar");
   printf("\n3 - Creditos");
   printf("\n0 - Sair");
 
@@ -154,7 +154,7 @@ int grafico(char velha[3][3]) {
 void comojogar() {
 	
   printf("####################################");
-  printf("\n    -> Jogo da Velha - Regras <-      ");
+  printf("\n    -> Jogo da Velha - Como Jogar <-      ");
   printf("\n####################################\n\n"); 
 
 	printf("Teste");
@@ -169,7 +169,9 @@ void creditos() {
   printf("\n######################################\n\n"); 
 
 	printf("Autor: Danilo Dias");
+	printf("\nGithub: TDaniloJ");
 	printf("\nDireitos: Todos os direitos reservado ©");
+	
 	
 	printf("\n\nAperte 'enter' para voltar.");
 	getch();

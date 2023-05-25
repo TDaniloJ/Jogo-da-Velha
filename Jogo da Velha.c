@@ -24,11 +24,11 @@ int menu() {
   printf("\n    -> Jogo da Velha - Menu <-      ");
   printf("\n##################################");
 
-  printf("\n\nAviso: Jogo ainda em desevolvimento v1.1 demo!");
+  printf("\n\nAviso: Jogo ainda em desevolvimento v1.4!");
 	printf("\nAviso: Recomendamos ver como jogar antes de iniciar!");
 
   printf("\n\n1 - Inicia Jogo");
-  printf("\n2 - Como Jogar");
+	printf("\n2 - Como Jogar");
   printf("\n3 - Creditos");
   printf("\n0 - Sair");
 
@@ -39,13 +39,13 @@ int menu() {
 
   switch(op) {
     case 1:
-    	jogodaVelha();
+      jogodaVelha();
         break;
     case 2:
-    	comojogar();
+      comojogar();
         break;
     case 3:
-		creditos();
+			creditos();
         break;
     default:
       printf("Informação inserida esta invalida");
@@ -71,9 +71,12 @@ int jogodaVelha() {
 		}
 	}
 	printf("\n");
+
+
 	
 	grafico(velha);
 	 	
+	
 	ganhou = 0;
     
     for(rodada = 1; rodada <= 9 && ganhou == 0; rodada++) {
@@ -84,8 +87,6 @@ int jogodaVelha() {
 			jogador = 'O';
 		}	
     	
-    	repetiu = 0;
-    	
     	do{
 			printf("\n#Digite sua jogadar#");
 			printf("\nRodadas feitas %d", rodada);
@@ -94,14 +95,10 @@ int jogodaVelha() {
 	    fflush(stdin);
     	
     	}while(linha < 1 || linha > 3 || coluna < 1 || coluna > 3 || velha[linha-1][coluna-1] != ' ');
-    		
+    	
  		velha[linha-1][coluna-1] = jogador;
  		
  		grafico(velha);
- 		
- 		if(linha <= 1 && linha >= 3 || coluna <= 1 && coluna >= 3) {
-			repetiu = 1;
-		}
  		
  		if(velha[linha-1][0] == velha[linha-1][1] && velha[linha-1][1] == velha[linha-1][2]){
  			ganhou = 1;
@@ -114,15 +111,18 @@ int jogodaVelha() {
 		}
 	}
 
-	if (repetiu == 1) {
+	if (velha[linha-1][coluna-1] == linha && coluna) {
 		printf("Esse comando ja foi escolhido tente novamente");
-	} else if (ganhou == 0) {
+	}
+	
+
+	if (ganhou == 0) {
 	  printf("\nDeu velha!\n");
 	  system("pause");
-	}else {
+	}
+	else {
 	  printf("\nO jogador '%c' ganhou!\n", jogador);
 	  
-
 	  system("pause");
 	}
 }
@@ -151,15 +151,17 @@ int grafico(char velha[3][3]) {
 
 void comojogar() {
 	
-	printf("########################################");
-  	printf("\n    -> Jogo da Velha - Como Jogar <-      ");
-  	printf("\n########################################\n\n");
+	printf ( " #### #################################### " );
+  	printf ( " \n     -> Jogo da Velha - Como Jogar <-       " );
+  	printf ( " \n #################################### #### \n\n " );
 
-	printf("\n1 - Escolhas as cordenadas de acordo quer é monstrado como exemplo (1 a 3)!");
-	printf("\n2 - No Inicio do jogo sempre começa com o jogador um !");
-	printf("\n3 - Jogador Um 'X', Jogador Dois 'O'!");
+	printf ( " Teste " );
+	printf ( " \n 1 - Escolhas as cordenadas de acordo quer é mostrado como exemplo (1 a 3)! " );
+	printf ( " \n 2 - No Inicio do jogo sempre começa com o jogador um! " );
+	printf ( " \n 3 - Jogador Um 'X', Jogador Dois 'O'! " );
+
+	printf ( " \n\n Aperte 'enter' para voltar. " );
 	
-	printf("\n\nAperte 'enter' para voltar.");
 	getch();
 }
 
@@ -171,7 +173,7 @@ void creditos() {
 
 	printf("Autor: Danilo Dias");
 	printf("\nGithub: TDaniloJ");
-	printf("\nDireitos: Todos os direitos © reservado");
+	printf("\nDireitos: Todos os direitos reservado ©");
 	
 	
 	printf("\n\nAperte 'enter' para voltar.");

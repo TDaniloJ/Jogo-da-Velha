@@ -10,6 +10,11 @@ void creditos(), comojogar();
 int main() {
   setlocale(LC_ALL, "portuguese");
 
+	system("title Jogo da Velha - v1.4");
+	system("mode con: cols=100 lines=24");
+	system("chcp 65001");
+	system("cls");
+
   menu();
 
   return 0;
@@ -24,12 +29,15 @@ int menu() {
   printf("\n    -> Jogo da Velha - Menu <-      ");
   printf("\n##################################");
 
+
+  printf("\t\t\t\t\t\t\tVersão: 1.4");
   printf("\n\nAviso: Jogo ainda em desevolvimento v1.4!");
-  printf("\nAviso: Recomendamos ver 'Como Jogar' antes de iniciar o Jogo!");
+	printf("\nAviso: Recomendamos ver 'Como Jogar' antes de iniciar o Jogo!");
 
   printf("\n\n1 - Inicia Jogo");
   printf("\n2 - Como Jogar");
   printf("\n3 - Creditos");
+  printf("\n4 - Update(Novo)");
   printf("\n0 - Sair");
 
   printf("\n\nEscolha uma das opções: ");
@@ -46,6 +54,9 @@ int menu() {
       break;
     case 3:
 	  creditos();
+      break;
+    case 4:
+      //update();
       break;
     default:
       printf("Informação inserida esta invalida");
@@ -81,7 +92,7 @@ int jogodaVelha() {
     if(jogador%2 == 1) {
     	jogador = 'X';
 		}else{
-		jogador = 'O';
+			jogador = 'O';
 		}	
     	
     do{
@@ -110,10 +121,10 @@ int jogodaVelha() {
 		}
 	}
 
-	if(velha[linha-1][coluna-1] == linha && coluna) {
+	/*if(velha[linha-1][coluna-1] == linha && coluna) {
 		printf("Esse comando ja foi escolhido tente novamente");
-	}
-
+	}*/
+ 
 	if(ganhou == 0) {
 	  printf("\nDeu velha!\n");
 	  system("pause");
@@ -156,7 +167,7 @@ void comojogar() {
 	printf ( " Teste " );
 	printf ( " \n 1 - Escolhas as cordenadas de acordo quer é mostrado como exemplo (1 a 3)! " );
 	printf ( " \n 2 - No Inicio do jogo sempre começa com o jogador um! " );
-	printf ( " \n 3 - Jogador Um 'X', Jogador Dois 'O'! " );
+	//printf ( " \n 3 - Jogador Um 'X', Jogador Dois 'O'! " );
 
 	printf ( " \n\n Aperte 'enter' para voltar. " );
 	

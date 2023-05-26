@@ -25,10 +25,10 @@ int menu() {
   printf("\n##################################");
 
   printf("\n\nAviso: Jogo ainda em desevolvimento v1.4!");
-	printf("\nAviso: Recomendamos ver 'Como Jogar' antes de iniciar o Jogo!");
+  printf("\nAviso: Recomendamos ver 'Como Jogar' antes de iniciar o Jogo!");
 
   printf("\n\n1 - Inicia Jogo");
-	printf("\n2 - Como Jogar");
+  printf("\n2 - Como Jogar");
   printf("\n3 - Creditos");
   printf("\n0 - Sair");
 
@@ -45,7 +45,7 @@ int menu() {
       comojogar();
       break;
     case 3:
-			creditos();
+	  creditos();
       break;
     default:
       printf("Informação inserida esta invalida");
@@ -81,7 +81,7 @@ int jogodaVelha() {
     if(jogador%2 == 1) {
     	jogador = 'X';
 		}else{
-			jogador = 'O';
+		jogador = 'O';
 		}	
     	
     do{

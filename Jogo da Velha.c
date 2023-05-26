@@ -8,11 +8,11 @@ int menu(), jogodaVelha(), grafico();
 void creditos(), comojogar();
 
 int main() {
-    setlocale(LC_ALL, "portuguese");
+  setlocale(LC_ALL, "portuguese");
 
-    menu();
+  menu();
 
-    return 0;
+  return 0;
 }
 
 int menu() {
@@ -25,7 +25,7 @@ int menu() {
   printf("\n##################################");
 
   printf("\n\nAviso: Jogo ainda em desevolvimento v1.4!");
-	printf("\nAviso: Recomendamos ver como jogar antes de iniciar!");
+	printf("\nAviso: Recomendamos ver 'Como Jogar' antes de iniciar o Jogo!");
 
   printf("\n\n1 - Inicia Jogo");
 	printf("\n2 - Como Jogar");
@@ -40,16 +40,16 @@ int menu() {
   switch(op) {
     case 1:
       jogodaVelha();
-        break;
+      break;
     case 2:
       comojogar();
-        break;
+      break;
     case 3:
 			creditos();
-        break;
+      break;
     default:
       printf("Informação inserida esta invalida");
-        break;
+      break;
   }
         
   system("cls");
@@ -72,29 +72,28 @@ int jogodaVelha() {
 	}
 	printf("\n");
 
-
-	
 	grafico(velha);
 	 	
-	
 	ganhou = 0;
     
-    for(rodada = 1; rodada <= 9 && ganhou == 0; rodada++) {
+  for(rodada = 1; rodada <= 9 && ganhou == 0; rodada++) {
  
-    	if(jogador%2 == 1) {
-    		jogador = 'X';
+    if(jogador%2 == 1) {
+    	jogador = 'X';
 		}else{
 			jogador = 'O';
 		}	
     	
-    	do{
+    do{
+
 			printf("\n#Digite sua jogadar#");
 			printf("\nRodadas feitas %d", rodada);
-			printf("\nDigite as coordenadas (de 1 a 3) em que quer colocar o '%c': ", jogador);
+			printf("\nDigite as coordenadas (de 1 a 3 Ex: 1 2). Em quer local que colocar o '%c' Jogador %c: ", jogador, jogador);
 			scanf("%d %d", &linha, &coluna);
+
 	    fflush(stdin);
     	
-    	}while(linha < 1 || linha > 3 || coluna < 1 || coluna > 3 || velha[linha-1][coluna-1] != ' ');
+    }while(linha < 1 || linha > 3 || coluna < 1 || coluna > 3 || velha[linha-1][coluna-1] != ' ');
     	
  		velha[linha-1][coluna-1] = jogador;
  		
@@ -111,12 +110,11 @@ int jogodaVelha() {
 		}
 	}
 
-	if (velha[linha-1][coluna-1] == linha && coluna) {
+	if(velha[linha-1][coluna-1] == linha && coluna) {
 		printf("Esse comando ja foi escolhido tente novamente");
 	}
-	
 
-	if (ganhou == 0) {
+	if(ganhou == 0) {
 	  printf("\nDeu velha!\n");
 	  system("pause");
 	}
@@ -131,29 +129,29 @@ int grafico(char velha[3][3]) {
 	
 	system("cls");
 	
-    printf("####################################");
-    printf("\n    -> Jogo da Velha - Jogo <-      ");
-    printf("\n####################################\n\n"); 
+  printf("####################################");
+  printf("\n    -> Jogo da Velha - Jogo <-      ");
+  printf("\n####################################\n\n"); 
 
 	printf("      1        2        3   \n");	
-  	printf("                            \n");
-  	printf("           |        |        \n");
-  	printf("1     %c    |   %c    |   %c   \n", velha[0][0], velha[0][1], velha[0][2]);
-  	printf("   ________|________|________\n");
-  	printf("           |        |        \n");
-  	printf("2     %c    |   %c    |   %c   \n", velha[1][0], velha[1][1], velha[1][2]);
-  	printf("   ________|________|________\n");
-  	printf("           |        |        \n");
-  	printf("3     %c    |   %c    |   %c   \n", velha[2][0], velha[2][1], velha[2][2]);
-  	printf("           |        |        \n");
+  printf("                            \n");
+  printf("           |        |        \n");
+  printf("1     %c    |   %c    |   %c   \n", velha[0][0], velha[0][1], velha[0][2]);
+  printf("   ________|________|________\n");
+  printf("           |        |        \n");
+  printf("2     %c    |   %c    |   %c   \n", velha[1][0], velha[1][1], velha[1][2]);
+  printf("   ________|________|________\n");
+  printf("           |        |        \n");
+  printf("3     %c    |   %c    |   %c   \n", velha[2][0], velha[2][1], velha[2][2]);
+  printf("           |        |        \n");
 
 }
 
 void comojogar() {
 	
 	printf ( " #### #################################### " );
-  	printf ( " \n     -> Jogo da Velha - Como Jogar <-       " );
-  	printf ( " \n #################################### #### \n\n " );
+  printf ( " \n     -> Jogo da Velha - Como Jogar <-       " );
+  printf ( " \n #################################### #### \n\n " );
 
 	printf ( " Teste " );
 	printf ( " \n 1 - Escolhas as cordenadas de acordo quer é mostrado como exemplo (1 a 3)! " );
